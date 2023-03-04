@@ -1,0 +1,10 @@
+const express = require("express")
+const router = express.Router()
+const Room = require("../Controller/Rooms")
+const verfiy = require("../utils/verfiytoken")
+router.post('/addroom/:id', verfiy.verfiyadmin, Room.Createroom)
+router.put('/updateroom/:id', verfiy.verfiyadmin, Room.UpdateRoom)
+router.delete('/deleteroom/:roomid/hotel/:hotelid', verfiy.verfiyadmin, Room.DeleteRoom)
+router.get('/getroom', Room.Findone)
+router.get('/getallrooms', Room.Getall)
+module.exports = router
